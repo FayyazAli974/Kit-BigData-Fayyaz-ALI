@@ -66,46 +66,36 @@ def compte_mots(filename):
 def print_words(filename):
     dico = compte_mots(filename)
     dico_trie = sorted(dico.items(), reverse=True, key=lambda x: x[1])
-
     print(dico_trie)
     
 
 def print_top(filename):
-    dico = commpte_mots(filename)
+    dico = compte_mots(filename)
     dico_trie = sorted(dico.items(), reverse=True, key=lambda x: x[1])[:20]
     print(dico_trie)
 
 
 
 
-filename = "alice.txt"
-print(compte_mots(filename))
-print("tout")
-print_words(filename)
-print("top")
-print_top(filename)
-
-print(sys.argv)
-
 ###
 
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
-#def main():
-#  if len(sys.argv) != 3:
-#    print('usage: ./wordcount.py {--count | --topcount} file')
- #   sys.exit(1)
+def main():
+  if len(sys.argv) != 3:
+    print('usage: ./wordcount.py {--count | --topcount} file')
+    sys.exit(1)
 
- # option = sys.argv[1]
- # filename = sys.argv[2]
- # if option == '--count':
- #   print_words(filename)
- # elif option == '--topcount':
- #   print_top(filename)
- # else:
- #   print('unknown option: ' + option)
-#    sys.exit(1)
+  option = sys.argv[1]
+  filename = sys.argv[2]
+  if option == '--count':
+    print_words(filename)
+  elif option == '--topcount':
+    print_top(filename)
+  else:
+    print('unknown option: ' + option)
+    sys.exit(1)
 
-#if __name__ == '__main__':
-#  main()
+if __name__ == '__main__':
+  main()
   
