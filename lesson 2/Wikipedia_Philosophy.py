@@ -22,8 +22,12 @@ while distance < distance_max:
       nom_page = list(links.keys())[random.randint(0, len(links)-1)] 
       if not (nom_page.startswith('Category') or ('Wiki' in nom_page)):
           page_courant = nom_page
+     
+
+      if 'Philosophy' in list(links.keys()):
+          page_courant = 'Philosophy'
           
-          
+
       #page_courant = list(links.keys())[3]
       print(page_courant)
       if page_courant == page_fin:
